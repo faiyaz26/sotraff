@@ -345,4 +345,12 @@ class UserController extends BaseController {
         }
         return $redirect;
     }
+
+    public function getAvatar($id){
+        $user = User::find($id)->first();
+        $email = trim($user->email);
+        $email = strtolower( $email ); // "myemailaddress@example.com"
+        $email = md5( $email );
+        return $email;
+    }
 }

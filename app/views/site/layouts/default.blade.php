@@ -19,8 +19,10 @@
 
 		<!-- CSS
 		================================================== -->
-        {{ Basset::show('public.css') }}
-
+        {{-- Basset::show('public.css') --}}
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/bootstrap.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/select2.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/slider.css')}}" />
 		<style>
 		@section('styles')
 		@show
@@ -33,11 +35,11 @@
 
 		<!-- Favicons
 		================================================== -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('ico/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('ico/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('ico/favicon.png') }}}">
 	</head>
 
 	<body>
@@ -75,7 +77,7 @@
 		<!-- ./ navbar -->
 
 		<!-- Container -->
-		<div class="container">
+		<div class="container" style = "padding-top: 5%;">
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
@@ -92,16 +94,24 @@
 		<!-- ./wrap -->
 
 
-	    <div id="footer" class = "navbar-fixed-bottom">
-	      <div class="container">
-	        <p class="muted credit">SoTraff  © 2014</a>.</p>
-	      </div>
-	    </div>
+	    <div id="footer" class="container">
+		    <nav class="navbar navbar-default navbar-fixed-bottom">
+		        <div class="navbar-inner navbar-content-center" style = "color: white;">
+		            <p class="credit text-center"> SoTraff (c) Copyright 2014</a>.</p>
+		        </div>
+		    </nav>
+		</div>
 
 		<!-- Javascripts
 		================================================== -->
-        {{ Basset::show('public.js') }}
-        @yield('js')
+		<script src = "{{asset('js/jquery_1.10.1.js')}}"> </script>
+		<script src = "{{asset('js/bootstrap/bootstrap.js')}}"> </script>
+		<script src = "{{asset('js/prettify.js')}}"> </script>
+		<script src = "{{asset('js/tweenlite.min.js')}}"> </script>
+		<script src = "{{asset('js/select2.js')}}"> </script>
+		<script src = "{{asset('js/bootstrap-slider.js')}}"> </script>
+		@yield('scripts')
+        {{-- Basset::show('public.js') --}}
        
 	</body>
 </html>
